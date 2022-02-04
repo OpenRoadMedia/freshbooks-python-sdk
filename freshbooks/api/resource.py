@@ -34,7 +34,6 @@ class Resource:
             retry = Retry(  # type: ignore
                 total=self.API_RETRIES,
                 backoff_factor=0.3,
-                allowed_methods=["HEAD", "GET", "PUT", "DELETE", "OPTIONS", "TRACE"],
                 status_forcelist=[400, 408, 429, 500, 502, 503, 504],
             )
             adapter = HTTPAdapter(max_retries=retry)
